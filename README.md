@@ -1,3 +1,26 @@
-# This code connect webpage with mirai robot.It contains funtion that could get the Shenzhen university public documents and then push those to the qq group.
-# 本项目利用Nodejs与油猴脚本进行通信，又通过Nodejs与mirai机器人通信，最终实现了获取深大公文页面（特指讲座页面）等功能。
-说明：“公文查询系统”、“公文查询辅助”均是油猴脚本。“公文通.ai”是ai图像文件，提供使用。“document”为mirai机器人GMC框架下Nodejs的通信部分代码。
+深圳大学学术活动筛选器
+这个项目是一个Node.js应用程序，旨在根据特定的筛选条件（例如日期、校区、和学院）从深圳大学官网获取并筛选学术活动通知。
+
+功能
+1. 数据获取： 应用程序利用axios库向深圳大学官网发送GET请求，并获取包含学术活动通知的HTML页面。
+
+2. 数据解析： 使用cheerio库解析获取的HTML，并从中提取出活动通知文本，将其转化为易于处理的JavaScript对象。
+
+3. 数据筛选： 根据用户输入的参数（如日期、校区、和学院），应用程序从解析得到的JavaScript对象中筛选出对应的学术活动，并以用户友好的方式输出。
+
+该应用程序可以作为深圳大学的教职工和学生快速查找感兴趣学术活动的实用工具。
+
+配置说明
+let campus = ''; //默认粤海，可填 丽湖、两校区
+let days = 0; //默认目前， 可填1-n天
+let department = '传播学院、人文学院、外国语学院'//默认全部学院，可填单个或学院列表，若为单个输出格式小有改变
+let not_department = '微纳光电子学研究院、数学与统计学院'//默认不排除，可填单个或学院列表
+GetDocu(raw_data, campus, days, department, not_department);
+
+
+## 开始使用
+使用此应用程序：
+
+克隆此存储库到你的本地机器。
+使用node script.js运行脚本。
+在控制台查看输出结果。
